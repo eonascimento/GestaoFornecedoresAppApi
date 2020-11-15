@@ -25,12 +25,11 @@ namespace GestaoFornecedoresApp.Business.Services
         public async Task Adicionar(Fornecedor fornecedor)
         {
             if (!ExecutarValidacao(new FornecedorValidation(), fornecedor)
-                || !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return;
+                || !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return ;
 
             if( _fornecedorRepository.Buscar(f => f.Documento == fornecedor.Documento).Result.Any())
             {
                 Notificar("Já existe um fornecedor com este documento informado");
-                return;
             }
 
             await _fornecedorRepository.Adicionar(fornecedor);
@@ -55,12 +54,11 @@ namespace GestaoFornecedoresApp.Business.Services
             await _enderecoRepository.Atualizar(endereco);
         }
 
-        public async Task Remover(Guid id)
+        public async Task  Remover(Guid id)
         {
             if (_fornecedorRepository.ObterFornecedorProdutosEnderecos(id).Result.Produtos.Any())
             {
                 Notificar("O fornecedor possui produtos cadastrados!");
-                return;
             }
             var endereco = await _enderecoRepository.ObterEnderecoPorFornecedor(id);
 

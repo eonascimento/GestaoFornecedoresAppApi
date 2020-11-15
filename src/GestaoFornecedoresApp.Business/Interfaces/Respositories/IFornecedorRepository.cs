@@ -10,6 +10,6 @@ namespace GestaoFornecedoresApp.Business.Interfaces.Respositories
     {
         Task<Fornecedor> ObterFornecedorEndereco(Guid id);
         Task<Fornecedor> ObterFornecedorProdutosEnderecos(Guid id);
-
+        Task<List<Fornecedor>> ObterFornecedoresEndereco();
     }
 }
