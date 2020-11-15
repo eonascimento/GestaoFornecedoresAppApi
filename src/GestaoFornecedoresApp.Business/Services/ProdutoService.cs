@@ -7,7 +7,7 @@ using System;
 using System.Threading.Tasks;
 
 namespace GestaoFornecedoresApp.Business.Services
-{
+{  
     public class ProdutoService : BaseService, IProdutoService
     {
         private readonly IProdutoRepository _produtoRepository;

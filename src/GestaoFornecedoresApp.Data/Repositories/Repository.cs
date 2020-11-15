@@ -55,7 +55,7 @@ namespace GestaoFornecedoresApp.Data.Repositories
         {
             return await Db.SaveChangesAsync();
         }
-        public async void Dispose()
+        public void Dispose()
         {
             Db?.Dispose();
         }
